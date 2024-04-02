@@ -27,7 +27,9 @@
 <script>
   var socket = io();
   socket.on('connect', () => {
-    user = { id: socket.id };
+    const username = prompt('Por favor, insira seu nome de usuário:')
+
+    user = { id: socket.id, username: username };
     users[socket.id] = user;
     renderUsers();
   });
