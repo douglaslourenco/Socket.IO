@@ -5,7 +5,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const port = process.env.PORT || 3000;
-
+const host = '0.0.0.0'
 app.use("/public", express.static("public", {}))
 
 app.get('/', (req, res) => {
@@ -31,6 +31,6 @@ io.on('connection', (socket) => {
     })
 });
 
-server.listen(port, "0.0.0.0" ,function() {
+server.listen(port , host, function() {
     console.log('listening on *:3000');
 });
