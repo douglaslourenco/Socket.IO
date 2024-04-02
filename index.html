@@ -15,7 +15,7 @@
       const user = users[userId]
       console.log(user);
       return `
-          <div class="player" style="top: ${user.y || 0}px; left: ${user.x || 0}px;">${user.id}</div>
+          <div class="player" style="top: ${user.y || 0}px; left: ${user.x || 0}px;">${user.username}</div>
         `;
     }).join('')}
     `;
@@ -29,7 +29,7 @@
   socket.on('connect', () => {
     const username = prompt('Por favor, insira seu nome de usuário:')
 
-    user = { id: socket.id, username: username };
+    user = { id: username};
     users[socket.id] = user;
     renderUsers();
   });
